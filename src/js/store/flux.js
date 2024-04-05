@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			characters:[]
+			characters:[],
+			planets: []
 
 		},
 
@@ -28,6 +29,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data= await res.json()
 				setStore({characters: data.results})	
 			},
+			loadSomePlanets: async () => {
+				const res = await fetch("https://www.swapi.tech/api/planets/")
+				const data= await res.json()
+				setStore({planets: data.results})	
+			},
+
 
 			changeColor: (index, color) => {
 				//get the store
