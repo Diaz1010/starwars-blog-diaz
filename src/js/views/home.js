@@ -18,9 +18,12 @@ export const Home = () => {
             <div key={uid} className="card col-2 bg-dark">
                 <img src={imgUrl} className="card-img-top" alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
+                    <h5 className="card-title border-bottom border-warning">{name}</h5>
                     <p className="card-text"></p>
-                    <Link to={`/character/${uid}`}  className="btn btn-primary">Go somewhere</Link>
+                    <Link to={`/character/${uid}`}  className="btn btn-primary mx-2">Go somewhere</Link>
+                    <button onClick={() => actions.addToFavorites(uid)} className="btn btn-primary bg-danger border border-danger">Heart</button>
+
+
                 </div>
             </div>
         );

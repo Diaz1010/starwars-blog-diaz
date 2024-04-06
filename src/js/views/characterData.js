@@ -19,6 +19,9 @@ export const CharacterData = () => {
 
     return (
         <div className="d-flex justify-content-center align-items-center mt-5 border-bottom border-warning">
+            <Link to="/">
+                <img id="logo2"  className="mx-3"   src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Star_Wars_Logo..png" alt="Star Wars Logo" />
+            </Link>
             <div className="mx-5 mb-5" >
                 <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt="..." />
             </div>
@@ -29,6 +32,7 @@ export const CharacterData = () => {
                 <p className="text-warning"><strong>Hair color : </strong>{item.properties && item.properties.hair_color}</p>
                 <p className="text-warning"><strong>Skin color : </strong>{item.properties && item.properties.skin_color}</p>
                 <p className="text-warning"><strong>Gender : </strong>{item.properties && item.properties.gender}</p>
+                
             </div>
            
 

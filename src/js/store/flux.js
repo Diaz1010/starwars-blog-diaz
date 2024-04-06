@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			characters:[],
+			favorites:[],
 			planets: [],
 			ships:[]
 
@@ -41,6 +42,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ships: data.results})	
 			},
 
+			addToFavorites: (index) => {
+				const store = getStore();
+				const newItem = store.characters.find(item => item.uid === index);
+			
+				// Solo agregamos el 'uid' del nuevo item a la lista de favoritos
+				setStore({ favorites: [...store.favorites, newItem.name] });
+				console.log(store.favorites);
+			},
 
 			changeColor: (index, color) => {
 				//get the store
