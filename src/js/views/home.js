@@ -11,8 +11,8 @@ export const Home = () => {
         actions.loadSomeShips()
     }, []); // Añade 'actions' como dependencia del useEffect
 
-    const Card = ({ uid, type, name }) => {
-        const imgUrl = `https://starwars-visualguide.com/assets/img/${type}/${uid}.jpg`;
+    const Card = ({ uid, type, name, image }) => {
+        const imgUrl = `https://starwars-visualguide.com/assets/img/${image}/${uid}.jpg`;
     
         return (
             <div key={uid} className="card col-2 bg-dark">
@@ -20,8 +20,8 @@ export const Home = () => {
                 <div className="card-body">
                     <h5 className="card-title border-bottom border-warning">{name}</h5>
                     <p className="card-text"></p>
-                    <Link to={`/character/${uid}`}  className="btn btn-primary mx-2">Go somewhere</Link>
-                    <button onClick={() => actions.addToFavorites(uid)} className="btn btn-primary bg-danger border border-danger">Heart</button>
+                    <Link to={`/${type}/${uid}`}  className="btn btn-primary mx-2">Learn more</Link>
+                    <button onClick={() => actions.addToFavorites(uid)} className="btn btn-primary bg-danger border border-danger">Add favorite</button>
 
 
                 </div>
@@ -31,16 +31,16 @@ export const Home = () => {
     
     // Generar tarjetas de personajes
     const characters = store.characters.map(char => (
-        <Card key={char.uid} uid={char.uid} type="characters" name={char.name} />
+        <Card key={char.uid} uid={char.uid} type="character" image="characters" name={char.name} />
     ));
     
     // Generar tarjetas de planetas
     const planets = store.planets.map(planet => (
-        <Card key={planet.uid} uid={planet.uid} type="planets" name={planet.name} />
+        <Card key={planet.uid} uid={planet.uid} type="planets" image="planets" name={planet.name} />
     ));
 
     const ships = store.ships.map(ship => (
-        <Card key={ship.uid} uid={ship.uid} type="starships" name={ship.name} />
+        <Card key={ship.uid} uid={ship.uid} type="starships" image="starships" name={ship.name} />
     ));
 
 
